@@ -1,0 +1,56 @@
+---
+
+####
+## Play 1 - Setup common configs 
+###
+- name: Setup common configs 
+  hosts: all
+  gather_facts: false
+
+
+  roles:
+    - { name: common_tasks }
+
+###
+## Play 2 - Setup tomcat app tier
+###
+
+- name: Setup tomcat
+  hosts: apps
+  gather_facts: false 
+  become: true
+
+
+  roles:
+    - { name: setup_tomcat }
+
+###
+## Play 3 - Setup Ha_Proxy
+###
+
+- name: setup  front-end load balancer haproxy
+  hosts: frontends
+  gather_facts: false
+  become: true
+
+
+  roles:
+    - { name: haproxy_tier }
+
+
+###
+## Play 4 - Setup PostGres
+###
+
+- name: deploy database-tier - postgres
+  hosts: appdbs
+  gather_facts: false
+  become: true
+  tags:
+    - database-tier
+
+  roles:
+    - { name: postgres_tier }
+
+
+...
