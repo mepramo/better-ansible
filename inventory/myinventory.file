@@ -10,6 +10,7 @@ ansible_become=yes
 ansible_ssh_user=ec2-user
 ansible_ssh_private_key_file="~/.ssh/5463key.pem"
 ansible_ssh_common_args="-o StrictHostKeyChecking=no"
+project_author="Pramod Jose"
 [3tierapp:children]
 frontends
 apps

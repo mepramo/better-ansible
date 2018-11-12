@@ -1,2 +1,26 @@
 ---
 # tasks file for postgres_tier
+
+- name: install postgres
+  yum:
+    name: postgresql-server
+    state: latest
+
+
+- name: check for postgres data directories
+  stat: path=/var/lib/pgsql/data/postgresql.conf
+  register: postgresqlCheck
+
+
+- name: initilize postgres
+  command: postgresql-setup initdb
+  when: not postgresqlCheck.stat.exists
+  notify: restart postgres
+
+
+- name: start postgres
+  service:
+    name: postgresql.service
+    state: started
+  tags:
+    - start_postgres

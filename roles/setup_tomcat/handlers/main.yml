@@ -1,2 +1,6 @@
 ---
 # handlers file for setup_tomcat
+- name: start tomcat
+  service:
+    name: tomcat
+    state: restarted
