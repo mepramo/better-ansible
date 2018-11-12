@@ -45,7 +45,7 @@
 - name: deploy database-tier - postgres
   hosts: appdbs
   gather_facts: false
-  become: true
+  become: false
   tags:
     - database-tier
 
