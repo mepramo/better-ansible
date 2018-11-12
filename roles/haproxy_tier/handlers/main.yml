@@ -1,2 +1,6 @@
 ---
 # handlers file for haproxy_tier
+- name: Restart H Proxy
+  service:
+     name: haproxy
+     state: restarted
