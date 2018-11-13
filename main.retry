@@ -1,1 +1,5 @@
+app1
+app2
+appdb1.{{GUID}}.internal
 frontend1.{{GUID}}.internal
+support1.{{GUID}}.internal
