@@ -20,12 +20,12 @@ support
 
 [frontends]
 ## These are the frontends
-frontend1 ansible_ssh_host=frontend1.{{GUID}}.example.opentlc.com
+frontend1.{{GUID}}.internal ansible_ssh_host=frontend1.{{GUID}}.example.opentlc.com
 
 [apps]
 ## These are the apps
-app1.{{GUID}}.internal ansible_ssh_host=app1.{{GUID}}.example.opentlc.com
-app2.{{GUID}}.internal ansible_ssh_host=app2.{{GUID}}.example.opentlc.com
+app1 ansible_ssh_host=app1.{{GUID}}.example.opentlc.com
+app2 ansible_ssh_host=app2.{{GUID}}.example.opentlc.com
 
 [appdbs]
 ## These are the appdbs
