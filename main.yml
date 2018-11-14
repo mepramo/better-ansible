@@ -1,4 +1,16 @@
 ---
+####
+## Play 0 - Gather Dynamic Inv 
+###
+- name: Get dynamic inv for Openstack via Jumphos
+  hosts: jumpbox
+  tags:
+    - get_hostname
+    - get-osp-facts
+  gather_facts: false 
+  tasks:
+    - include_tasks: get_hostname.yml
+
 
 ####
 ## Play 1 - Setup common configs 
@@ -10,6 +22,7 @@
 
   roles:
     - { name: common_tasks }
+
 
 ###
 ## Play 2 - Setup tomcat app tier
